@@ -9,7 +9,7 @@ const Container = styled.div`
     margin-bottom: 8px;
     font-family: 'Helvetica';
     display: flex;
-    height: 70px;
+    height: 10x;
     border-radius: 25px;
     font-family:  sans-serif;
     fontw-weight:bold;
@@ -26,6 +26,7 @@ const Handle = styled.div `
  background-color: #78b0a0;
  border-raduis: 5px;
  margin-right: 8px; 
+ border-radius: 25px;
 `;
 
 export default class Task extends React.Component {

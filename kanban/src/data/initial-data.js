@@ -11,7 +11,7 @@ const initialData = {
     columns: {
         'column-1': {
             id: 'column-1',
-            title: 'Work in Progress ',
+            title: 'In Progress ',
             taskIds: ['task-1','task-2','task-3','task-4'],
         },
         'column-2' : {
@@ -23,10 +23,15 @@ const initialData = {
             id: 'column-3',
             title: 'Done',
             taskIds:[]
+        },
+        'column-4': {
+            id: 'column-4',
+            title: 'Backlog',
+            taskIds: []    
         }
     }, // end of columns 
 
-    columnOrder: ['column-1','column-2','column-3'],
+    columnOrder: ['column-4','column-1','column-2','column-3'],
 
 };
 export default initialData; 
