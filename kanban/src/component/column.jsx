@@ -7,20 +7,28 @@ const Container = styled.div`
     margin: 8px;
     border: 1px solid lightgrey;
     border-radius: 2px;
+    background-color: #efdab9;
+    
     `;
-const Title =styled.h3`
-  padding: 8px;
+const Title =styled.h2`
+  padding: 1px;
+  font-weight: bold;
+  color: grey; 
+  
 `;
 const TaskList = styled.div`
-padding: 8px;
+padding: 10px;
 `;
 export default class Column extends React.Component {
     render(){
         return (     
+          
                  <Container>
+                      
                     <Title> {this.props.column.title}</Title>
+                   
                     <Droppable droppableId={this.props.column.id}>
-                     {provided => (
+                     {(provided,snagshot) => (
                         <TaskList
                         ref={provided.innerRef}
                         {...provided.droppableProps}
@@ -34,5 +42,5 @@ export default class Column extends React.Component {
                     </Droppable>
                     </Container>
         );
-    }
-}
+    }// end of render 
+}// end of column extend 

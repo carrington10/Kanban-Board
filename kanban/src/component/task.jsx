@@ -9,21 +9,30 @@ const Container = styled.div`
     margin-bottom: 8px;
     background-color: white;
     font-family: 'Helvetica';
+    background-color: ${props => (props.isDragging ? 'Lightgreen' : 'white')};
 
+`;
+const Line = styled.div`
+border-bottom: 2px solid grey;
 `;
 
 export default class Task extends React.Component {
     render (){
         return (
             <Draggable draggableId={this.props.task.id} index={this.props.index}>
-            {provided => (
+            {(provided, snapshot) => (
                  <Container
-                 ref={provided.innerRef}
+              
                  {...provided.draggableProps}
                  {...provided.dragHandleProps}
-                
+                 ref={provided.innerRef}
+                 isDragging = {snapshot.isDragging}
+                 
                  >  
                  {this.props.task.content} 
+                 <br></br>
+                 By: {this.props.task.author} 
+                 <Line></Line>
                  </Container>
             )}
              </Draggable>
