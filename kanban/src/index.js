@@ -1,26 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
 import initialData from './data/initial-data.js';
 import Column from './component/column.jsx';
 import {DragDropContext}  from 'react-beautiful-dnd';
 import  head from './component/header.js'
 
-
+ const Container = styled.div`
+display: flex
+ `;
 class App extends React.Component{
+   
     state = initialData;
-    onDragStart = () => {
-     document.body.style.color = 'darkgreen'; 
-     document.body.style.transition = 'background-color 0.2 ease'
-    };// end of on drag start change color of highlighted task 
-
-    onDragUpdate = update => {
-      const { destination } = update;
-      const opacity = destination ? destination.index / Object.keys(this.state.tasks).length : 0;
-      document.body.style.backgroundColor = `rgba(34,139,34,${opacity}) `; // change color of fading when moving tasks
-    }// end of ondragUpdate 
+    
     onDragEnd = result => {
-        document.body.style.color = 'inherit';
-        document.body.style.color = 'inherit'// when drag ends reset back to background
+   
        // document.style.backgroundColor = 'inherit';
         const { destination,source,draggableId} = result;
 
@@ -63,15 +57,15 @@ class App extends React.Component{
          
            
            <DragDropContext
-                onDragStart= {this.onDragStart} 
-                onDragUpdate = {this.onDragUpdate}
+               
                 onDragEnd = {this.onDragEnd}>
-         
-               {this.state.columnOrder.map(columnId => {
-               const column = this.state.columns[columnId];
-               const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
-               return <Column key={column.id} column={column} tasks={tasks}></Column>
-            })}
+               <Container>
+                    {this.state.columnOrder.map(columnId => {
+                    const column = this.state.columns[columnId];
+                    const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
+                    return <Column key={column.id} column={column} tasks={tasks}></Column>
+                    })}
+               </Container>
            </DragDropContext>
            
         )// end of return 

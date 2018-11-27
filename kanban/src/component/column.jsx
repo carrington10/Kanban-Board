@@ -8,18 +8,22 @@ const Container = styled.div`
     border: 1px solid lightgrey;
     border-radius: 2px;
     background-color: #efdab9;
+    width: 400px;
+    border-radius: 25px;
     
     `;
 const Title =styled.h2`
-  padding: 1px;
+
   font-weight: bold;
   color: grey; 
-  
+  text-align: center;
+  border-bottom: 2px solid white;
+  font-family: sans-serif;
 `;
 const TaskList = styled.div`
 padding: 10px;
 transition: background-color 0.2s ease;
-background-color: ${props => (props.isDraggingOver ? 'darkgrey' : '')};
+background-color: ${props => (props.isDraggingOver ? '#574c4F' : '')};
 `;
 export default class Column extends React.Component {
     render(){

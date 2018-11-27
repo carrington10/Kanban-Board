@@ -7,10 +7,13 @@ const Container = styled.div`
     border-radius: 2px;
     padding: 8px;
     margin-bottom: 8px;
-    background-color: white;
     font-family: 'Helvetica';
-    background-color: ${props => (props.isDragging ? 'Lightgreen' : 'white')};
     display: flex;
+    height: 70px;
+    border-radius: 25px;
+    font-family: sans-serif;
+    color: #574c4F;
+    background-color: ${props => (props.isDragging ? 'lightgreen' : 'white')};
 `;
 const Line = styled.div`
 border-bottom: 2px solid #ccc;
@@ -36,11 +39,10 @@ export default class Task extends React.Component {
                  isDragging = {snapshot.isDragging}
                  >  
                     <Handle    {...provided.dragHandleProps} > </Handle>
-                        {this.props.task.content} 
+                       Task: {this.props.task.content} 
                         <br></br>
-                        By: {this.props.task.author} 
+                        Created By: {this.props.task.author} 
                         <Line></Line>
-                   
                  </Container>
             )}
              </Draggable>
