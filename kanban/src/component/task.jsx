@@ -11,8 +11,9 @@ const Container = styled.div`
     display: flex;
     height: 70px;
     border-radius: 25px;
-    font-family: sans-serif;
-    color: #574c4F;
+    font-family:  sans-serif;
+    fontw-weight:bold;
+    font-weight: 900;
     background-color: ${props => (props.isDragging ? 'lightgreen' : 'white')};
 `;
 const Line = styled.div`

@@ -12,12 +12,14 @@ const Container = styled.div`
     width:400px;
     background-color: #efdab9;
     `;
-const Title =styled.h2`
+const Title =styled.h1`
 
   font-weight: bold;
   text-align: center;
   border-bottom: 2px solid white;
-  font-family: sans-serif;
+  background: white;
+  font-family:  courier;
+  font-weight: bold;
   
 `;
 const TaskList = styled.div`
