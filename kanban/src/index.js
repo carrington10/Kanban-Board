@@ -7,7 +7,7 @@ import {DragDropContext}  from 'react-beautiful-dnd';
 import  head from './component/header.js'
 
  const Container = styled.div`
-display: flex
+display: flex;
  `;
 class App extends React.Component{
    
@@ -30,26 +30,53 @@ class App extends React.Component{
                   return;
         }// end of if 
        /// to do 
-       const column = this.state.columns[source.droppableId];
-       const newTasksIds = Array.from(column.taskIds);
-       newTasksIds.splice(source.index,1);
-       newTasksIds.splice(destination.index,0,draggableId);
+       const start = this.state.columns[source.droppableId];
+       const finish = this.state.columns[destination.droppableId]
+       if (start === finish){
+                    const newTasksIds = Array.from(start.taskIds)
+                    newTasksIds.splice(source.index,1);
+                    newTasksIds.splice(destination.index,0,draggableId);
+                    const newColumn = {
+                                    ...start,
+                                    taskIds: newTasksIds,
+                                };
+                        
+                                const newState = {
+                                ...this.state,
+                                columns: {
+                                    ...this.state.columns,
+                                    [newColumn.id]: newColumn,
+                                },
+                        }// end of new state
+                     this.setState(newState);
+                     return;
+       }// end of start === finish    
 
-       const newColumn = {
-           ...column,
-           taskIds: newTasksIds,
+       // move list to another 
+       const startTaskIds = Array.from(start.taskIds);
+       startTaskIds.splice(source.index,1);
+       const newStart = {
+           ...start,
+           taskIds:startTaskIds,
+       };
+       const finishTaskIds = Array.from(finish.taskIds);
+       finishTaskIds.splice(destination.index,0,draggableId);
+       const newFinish = {
+           ...finish,
+           taskIds: finishTaskIds,
        };
 
        const newState = {
-        ...this.state,
-        columns: {
+           ...this.state,
+           columns: {
             ...this.state.columns,
-            [newColumn.id]: newColumn,
-        },
-  }// end of new state
+           [newStart.id]: newStart,
+           [newFinish.id]: newFinish,
 
-      
-        this.setState(newState);
+           }
+       }
+       this.setState(newState);
+       
     };
     render () {
        

@@ -7,23 +7,27 @@ const Container = styled.div`
     margin: 8px;
     border: 1px solid lightgrey;
     border-radius: 2px;
+    flex-direction: column;
+    display: flex;
+    width:400px;
     background-color: #efdab9;
-    width: 400px;
-    border-radius: 25px;
-    
     `;
 const Title =styled.h2`
 
   font-weight: bold;
-  color: grey; 
   text-align: center;
   border-bottom: 2px solid white;
   font-family: sans-serif;
+  
 `;
 const TaskList = styled.div`
-padding: 10px;
+padding: 8px;
 transition: background-color 0.2s ease;
-background-color: ${props => (props.isDraggingOver ? '#574c4F' : '')};
+background-color: #efdab9;
+background-color: ${props => (props.isDraggingOver ? 'skyblue' : '')};
+flex-grow: 1;
+min-height: 100px;
+
 `;
 export default class Column extends React.Component {
     render(){
