@@ -8,8 +8,20 @@ import  head from './component/header.js'
 
 class App extends React.Component{
     state = initialData;
+    onDragStart = () => {
+     document.body.style.color = 'darkgreen'; 
+     document.body.style.transition = 'background-color 0.2 ease'
+    };// end of on drag start change color of highlighted task 
 
+    onDragUpdate = update => {
+      const { destination } = update;
+      const opacity = destination ? destination.index / Object.keys(this.state.tasks).length : 0;
+      document.body.style.backgroundColor = `rgba(34,139,34,${opacity}) `; // change color of fading when moving tasks
+    }// end of ondragUpdate 
     onDragEnd = result => {
+        document.body.style.color = 'inherit';
+        document.body.style.color = 'inherit'// when drag ends reset back to background
+       // document.style.backgroundColor = 'inherit';
         const { destination,source,draggableId} = result;
 
         if (!destination){
@@ -49,8 +61,11 @@ class App extends React.Component{
        
         return (
          
-         
-           <DragDropContext onDragEnd = {this.onDragEnd}>
+           
+           <DragDropContext
+                onDragStart= {this.onDragStart} 
+                onDragUpdate = {this.onDragUpdate}
+                onDragEnd = {this.onDragEnd}>
          
                {this.state.columnOrder.map(columnId => {
                const column = this.state.columns[columnId];
