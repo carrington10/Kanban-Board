@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import initialData from './data/initial-data.js';
 import Column from './component/column.jsx';
 import {DragDropContext}  from 'react-beautiful-dnd';
-import  head from './component/header.js'
+import Navo from './component/navbar.js'
 
 
 const Container = styled.div`
@@ -82,20 +82,22 @@ class App extends React.Component{
     render () {
        
         return (
-         
-           
-           <DragDropContext
-               
-                onDragEnd = {this.onDragEnd}>
-               <Container>
-                    {this.state.columnOrder.map(columnId => {
-                    const column = this.state.columns[columnId];
-                    const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
-                    return <Column key={column.id} column={column} tasks={tasks}></Column>
-                    })}
-               </Container>
-           </DragDropContext>
-           
+            <div>
+                   <div>
+                          <Navo title = 'WSM'> </Navo>
+                    </div>
+                    <DragDropContext
+                    
+                        onDragEnd = {this.onDragEnd}>
+                    <Container>
+                            {this.state.columnOrder.map(columnId => {
+                            const column = this.state.columns[columnId];
+                            const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
+                            return <Column key={column.id} column={column} tasks={tasks}></Column>
+                            })}
+                    </Container>
+                </DragDropContext>
+           </div>
         )// end of return 
     }
 
