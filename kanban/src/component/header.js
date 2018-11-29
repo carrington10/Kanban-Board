@@ -1,12 +1,37 @@
-import React from 'react'
-import styled from 'styled-components';
-const tit = styled.title` background-color: black;`
-const head = (props) => {
-    return (
-        <tit>
-        <h1> props.title </h1>
-        <br></br>
-        </tit>
-    )
-}
-export default head;
+import React from 'react';
+
+import { Navbar, Nav, NavItem} from 'react-bootstrap';
+
+class Head extends React.Component{
+
+    render(props){
+        return (
+            <div>
+
+                        <Navbar>
+  <Navbar.Header>
+    <Navbar.Brand>
+      <a href="#home">React-Bootstrap</a>
+    </Navbar.Brand>
+  </Navbar.Header>
+  <Nav>
+    <NavItem eventKey={1} href="#">
+      Link
+    </NavItem>
+    <NavItem eventKey={2} href="#">
+      Link
+    </NavItem>
+   
+  </Nav>
+</Navbar>;
+
+
+            </div>
+                                       
+
+        )
+    }// end of render
+
+}// end of class
+
+export default Head;
