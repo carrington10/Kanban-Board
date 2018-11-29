@@ -14,8 +14,8 @@ const Container = styled.div`
     border-background: transparent;
     text-align: center;
     `;
-const highlightedT = styled.div `
-    color: grey;
+const lightedT = styled.text`
+   color: green;
 `
 const Title =styled.h1`
 
@@ -58,7 +58,7 @@ export default class Column extends React.Component {
                     </TaskList>
                      )}
                     </Droppable>
-                     <highlightedT> <a href="#">Add Task</a></highlightedT>
+                     <lightedT> <a href="#">Add Task</a></lightedT>
                     
                     </Container>
         );
