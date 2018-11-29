@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import initialData from './data/initial-data.js';
 import Column from './component/column.jsx';
 import {DragDropContext}  from 'react-beautiful-dnd';
-import Navo from './component/Header.js'
+import Navo from './component/Header/Header.js'
 
 
 const Container = styled.div`
