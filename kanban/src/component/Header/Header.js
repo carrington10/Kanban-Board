@@ -1,30 +1,38 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Navbar, Nav, NavItem} from 'react-bootstrap';
+import { LinkContainer } from "react-router-bootstrap";
+import { Link , BrowserRouter as Router,NavLink }  from "react-router-dom";
+import Routes from '../Routes.js';
 import './Header.css'
 
-class Head extends React.Component{
+const Header =() => {
 
-    render(props){
+    
         return (
             <div>
-           
+             
                         <Navbar className = "navo">
+                       
                                 <Navbar.Header>
                                     <Navbar.Brand>
-                                          <a href="#home">WSM </a>
+                                        <p> WSM </p>
                                     </Navbar.Brand>
                                 </Navbar.Header>
-                                <Nav className = "highlightC">
-                                    <NavItem eventKey={1} href="#"> Home </NavItem>
-                                    <NavItem eventKey={2} href="#">Features </NavItem>
-                                </Nav>
+                                
+                                
+        
+                                
+                            
+                                <Nav className = "highlightC"  pullRight >
+                                    <NavItem>  <NavLink  to="/">Taskboard</NavLink>  </NavItem>
+                                    <NavItem>  <NavLink  to="/features">Features</NavLink>  </NavItem>
+                               </Nav>
                         </Navbar>;
-                 
+                        
             </div>
         )// end of return 
     }// end of render
 
-}// end of class
+// end of class
 
-export default Head;
+export default Header;
