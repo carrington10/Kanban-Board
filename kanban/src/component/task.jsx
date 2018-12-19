@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
+import TimerCount from './Timer/Timer.js';
 
 const Container = styled.div`
     border: 1px solid lightgrey;
@@ -43,8 +44,14 @@ export default class Task extends React.Component {
                     <Handle    {...provided.dragHandleProps} > </Handle>
                        Task: {this.props.task.content} 
                         <br></br>
-                        Created By: {this.props.task.author} 
+                        Created By: {this.props.task.name} 
+                        <br></br>
+                        <TimerCount></TimerCount>  <br></br>
+                      
                         <Line></Line>
+                      
+                       
+                    
                  </Container>
             )}
              </Draggable>

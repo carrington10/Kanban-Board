@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Task from './task.jsx';
-import { Droppable } from  'react-beautiful-dnd'
+import { Droppable } from  'react-beautiful-dnd';
+import axios from 'axios';
 
 const Container = styled.div`
     margin: 8px;
@@ -37,6 +38,16 @@ min-height: 100px;
 
 `;
 export default class Column extends React.Component {
+    state = {
+        taske: []
+    }
+    componentDidMount(){
+        axios.get('/users')
+            .then(res => {
+                    const taske= res.data;
+                    this.setState({taske})
+            })// end of get api
+    }// end of mounting component
     render(){
         return (     
           
@@ -51,7 +62,7 @@ export default class Column extends React.Component {
                         {...provided.droppableProps}
                         isDraggingOver={snapshot.isDraggingOver}
                     >
-                      {this.props.tasks.map((task,index) => ( 
+                      {this.state.taske.map((task,index) => ( 
                       <Task key={task.id} task = {task} index = {index}/>
                       ))}
                       {provided.placeholder}
