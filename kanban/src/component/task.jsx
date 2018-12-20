@@ -46,10 +46,11 @@ export default class Task extends React.Component {
                         <br></br>
                         Created By: {this.props.task.name} 
                         <br></br>
-                        <TimerCount></TimerCount>  <br></br>
+                       Date Created: { this.props.task.date_created}
+                        <br></br>
                       
                         <Line></Line>
-                      
+                   
                        
                     
                  </Container>

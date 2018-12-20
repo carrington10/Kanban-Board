@@ -42,7 +42,7 @@ export default class Column extends React.Component {
         taske: []
     }
     componentDidMount(){
-        axios.get('/users')
+        axios.get('/tasks')
             .then(res => {
                     const taske= res.data;
                     this.setState({taske})
