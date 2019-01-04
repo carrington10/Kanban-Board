@@ -18,17 +18,11 @@ const Header =() => {
                                         <h1> WSM  Kanban </h1>
                                   
                                 </Navbar.Header>
-                                
-                                
-        
-                                
-                            
                                 <Nav className = "highlightC"  pullRight >
                                     <NavItem>  <NavLink  to="/">Taskboard</NavLink>  </NavItem>
                                     <NavItem>  <NavLink  to="/features">Features</NavLink>  </NavItem>
                                </Nav>
-                        </Navbar>;
-                        
+                        </Navbar>
             </div>
         )// end of return 
     }// end of render

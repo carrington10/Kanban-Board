@@ -4,6 +4,7 @@ import Taskboard from './component/Taskboard/Taskboard.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import TaskBoard from './component/Taskboard/Taskboard.js'
 import Features from './component/Features/Features.js'
+import AddTask from './component/AddTask/AddTask.js'
 
 class App extends React.Component{
    
@@ -13,10 +14,11 @@ class App extends React.Component{
         <div >
                             <Router>
                         <div>
-                            <Navo/>>
+                            <Navo/>
                                   <Switch>
                                       <Route path="/" component={TaskBoard} exact />
                                       <Route path="/features"  component={Features}> </Route>
+                                      <Route path="/addtask" component={AddTask}> </Route>
                                   </Switch>
                               
                         </div>
