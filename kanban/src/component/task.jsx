@@ -25,7 +25,7 @@ border-bottom: 2px solid #ccc;
 const Handle = styled.div `
  width: 18px;
  height: 18px;
- background-color: #78b0a0;
+ background-color: #05054A;
  border-raduis: 5px;
  margin-right: 8px; 
  border-radius: 25px;

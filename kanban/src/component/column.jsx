@@ -11,13 +11,13 @@ const Container = styled.div`
     flex-direction: column;
     display: flex;
     width:400px;
-    background-color: #efdab9;
+    background-color: #FFF5EE;
     border-background: white ;
     text-align: center;
     
     `;
 const LightedT = styled.div`
-   color: green;
+   color: black;
 `
 const Title =styled.h1`
 
@@ -33,7 +33,7 @@ const Title =styled.h1`
 const TaskList = styled.div`
 padding: 8px;
 transition: background-color 0.2s ease;
-background-color: #efdab9;
+background-color: #FFF5EE;
 background-color: ${props => (props.isDraggingOver ? 'skyblue' : '')};
 flex-grow: 1;
 min-height: 100px;
