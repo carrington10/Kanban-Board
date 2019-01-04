@@ -15,6 +15,7 @@ const Container = styled.div`
     font-family:  sans-serif;
     fontw-weight:bold;
     font-weight: 900;
+    background-color:green;
     background-color: ${props => (props.isDragging ? 'lightgreen' : 'white')};
 `;
 const Line = styled.div`
@@ -42,11 +43,11 @@ export default class Task extends React.Component {
                  isDragging = {snapshot.isDragging}
                  >  
                     <Handle    {...provided.dragHandleProps} > </Handle>
-                       Task: {this.props.task.content} 
+                       Task: {this.props.task.task} 
                         <br></br>
                         Created By: {this.props.task.name} 
                         <br></br>
-                       Date Created: { this.props.task.date_created}
+                       Date Created: { this.props.task.date}
                         <br></br>
                       
                         <Line></Line>

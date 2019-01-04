@@ -14,9 +14,9 @@ const Header =() => {
                         <Navbar className = "navo">
                        
                                 <Navbar.Header>
-                                    <Navbar.Brand>
-                                        <p> WSM </p>
-                                    </Navbar.Brand>
+                                
+                                        <h1> WSM  Kanban </h1>
+                                  
                                 </Navbar.Header>
                                 
                                 

@@ -6,14 +6,15 @@ import axios from 'axios';
 
 const Container = styled.div`
     margin: 8px;
-    border: 1px solid lightgrey;
+    border: 10px solid  #05054A;
     border-radius: 2px;
     flex-direction: column;
     display: flex;
     width:400px;
     background-color: #efdab9;
-    border-background: transparent;
+    border-background: white ;
     text-align: center;
+    
     `;
 const LightedT = styled.div`
    color: green;
@@ -23,9 +24,10 @@ const Title =styled.h1`
   font-weight: bold;
   text-align: center;
   border-bottom: 2px solid white;
-  background: white;
+  background: #0B0B4A;
   font-family:  courier;
   font-weight: bold;
+  color:white;
   
 `;
 const TaskList = styled.div`
