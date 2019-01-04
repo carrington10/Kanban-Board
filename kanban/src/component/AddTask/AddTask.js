@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-
+import { createHashHistory } from 'history'
 class AddTask extends React.Component{
     state = {
         name: '',
@@ -33,6 +33,7 @@ class AddTask extends React.Component{
             task: postTask
              }).then(res => {
            console.log(res)
+           this.props.history.push('/')
         })// end of post to the api 
         
     }
