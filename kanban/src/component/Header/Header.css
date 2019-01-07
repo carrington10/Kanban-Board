@@ -6,7 +6,6 @@
     font-size: 20px;
     color:white;
     border-color: transparent;
-    text-align: center;
 }
 a{
     color: white;
@@ -15,11 +14,16 @@ a{
 .navbar-default .navbar-nav>li>a {
     color: white;
 }
-.navbar-default .navbar-brand {
+.navbar-default  {
    color:white;
 }
 
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
     color: black; 
+    
+  
     /* background-color: transparent; */
 }
+
+
+

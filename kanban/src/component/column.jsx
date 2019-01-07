@@ -89,7 +89,7 @@ export default class Column extends React.Component {
                     </TaskList>
                      )}
                     </Droppable>
-                     <LightedT> <a href="#">Add Task</a></LightedT>
+                     <LightedT> <a href="/addtask">Add Task</a></LightedT>
                           
                     </Container>
             
