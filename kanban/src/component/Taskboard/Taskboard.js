@@ -27,7 +27,7 @@ class Taskboard extends React.Component{
 
         if(
             destination.droppableId === source.droppableId && 
-            destination.index == source.index
+            destination.index === source.index
 
         ){
                   return;
@@ -88,12 +88,20 @@ class Taskboard extends React.Component{
                     <DragDropContext
                     
                         onDragEnd = {this.onDragEnd}>
+
+
                     <Container>
-                            {this.state.columnOrder.map(columnId => {
+
+                    {this.state.columnOrder.map(columnId => { 
                             const column = this.state.columns[columnId];
+                            return <Column key={column.id} column={column} checkId = {column.checkId} ></Column>
+                    })}
+                       {/*     {this.state.columnOrder.map(columnId => { 
+                            const column = this.state.columns[columnId];}
                             const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
                             return <Column key={column.id} column={column} tasks={tasks}></Column>
                             })}
+                        */}
                     </Container>
                 </DragDropContext>
            </div>

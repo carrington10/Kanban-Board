@@ -12,22 +12,26 @@ const initialData = {
         'column-1': {
             id: 'column-1',
             title: 'In Progress ',
-            taskIds: ['task-1','task-2','task-3','task-4'],
+            taskIds: [],
+            checkId:1
         },
         'column-2' : {
             id: 'column-2',
             title: 'Impediments',
-            taskIds:[]
+            taskIds:[],
+            checkId:2
         },
         'column-3' : {
             id: 'column-3',
             title: 'Done',
-            taskIds:[]
+            taskIds:[],
+            checkId:3
         },
         'column-4': {
             id: 'column-4',
             title: 'Backlog',
-            taskIds: []    
+            taskIds: [],
+            checkId:4    
         }
     }, // end of columns 
 

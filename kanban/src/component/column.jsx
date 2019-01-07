@@ -41,8 +41,11 @@ min-height: 100px;
 `;
 export default class Column extends React.Component {
     state = {
-        taske: []
+        taske: [],
+        listC: []
+        
     }
+    
     componentDidMount(){
         axios.get('/tasks')
             .then(res => {
@@ -50,13 +53,28 @@ export default class Column extends React.Component {
                     this.setState({taske})
             })// end of get api
     }// end of mounting component
-    render(){
-        return (     
+
+     checkT(taske,columnId){
+        this.state.taske.map((task) => {
+            console.log(task.id)
+            console.log(task.name)
+
+            if(task.columnId === columnId){
+                    this.state.listC.push(task)
+                    console.log("it has been added")
+            }// end of if
           
+        })
+}
+    
+    render(){
+        this.checkT(this.state.taske,this.props.checkId)
+      
+        return (     
+            
                  <Container>
                       
                     <Title> {this.props.column.title}</Title>
-                   
                     <Droppable droppableId={this.props.column.id}>
                      {(provided,snapshot) => (
                         <TaskList
@@ -64,16 +82,17 @@ export default class Column extends React.Component {
                         {...provided.droppableProps}
                         isDraggingOver={snapshot.isDraggingOver}
                     >
-                      {this.state.taske.map((task,index) => ( 
+                      {this.state.listC.map((task,index) => ( 
                       <Task key={task.id} task = {task} index = {index}/>
                       ))}
                       {provided.placeholder}
                     </TaskList>
                      )}
                     </Droppable>
-                     <LightedT> <a href="/addtask">Add Task</a></LightedT>
-                    
+                     <LightedT> <a href="#">Add Task</a></LightedT>
+                          
                     </Container>
+            
         );
     }// end of render 
 }// end of column extend 

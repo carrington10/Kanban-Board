@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
-import TimerCount from './Timer/Timer.js';
+
 
 const Container = styled.div`
     border: 1px solid lightgrey;
