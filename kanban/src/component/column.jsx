@@ -14,6 +14,7 @@ const Container = styled.div`
     background-color: #FFF5EE;
     border-background: white ;
     text-align: center;
+    width: 500px;
     
     `;
 const LightedT = styled.div`
@@ -37,7 +38,6 @@ background-color: #FFF5EE;
 background-color: ${props => (props.isDraggingOver ? 'skyblue' : '')};
 flex-grow: 1;
 min-height: 100px;
-
 `;
 export default class Column extends React.Component {
     state = {
