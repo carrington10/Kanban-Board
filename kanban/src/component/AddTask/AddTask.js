@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { createHashHistory } from 'history'
+import { Button, Checkbox, Form,TextArea } from 'semantic-ui-react'
 class AddTask extends React.Component{
     state = {
         name: '',
@@ -41,18 +41,22 @@ class AddTask extends React.Component{
     render() {
                return(
                    <div>
-                        <form onSubmit={this.handleSubmit}>
-                            <label>
-                                Name
-                                <input type="text" name="postName" onChange={this.handleNameChange} />>
-                            </label>
-
-                            <label>
-                                task
-                                <input type="text" task="postTask" onChange={this.handleTaskChange} />>
-                            </label>
-                            <button type="submit"> Add Task</button>
-                        </form>
+                       <h1> Add Task </h1>
+                        <Form onSubmit={this.handleSubmit}>
+                       
+                            <Form.Field   name="postName" onChange={this.handleNameChange} >
+                            <label> Name </label>
+                            <input placeholder='Name' />
+                        </Form.Field>
+                             
+                        <br></br> 
+                        <TextArea  placeholder="Task"  task="postTask" onChange={this.handleTaskChange}>
+                          
+                           </TextArea>
+                        <br></br>
+                        <br></br>
+                            <Button type="submit"> Add Task</Button>
+                        </Form>
                    </div>
                )
     }
