@@ -28,7 +28,7 @@ class AddTask extends React.Component{
            var postTask = this.state.task
         // end of task object to pass
     
-        axios.post('/addtask', {
+        axios.post('/addTask', {
             name: postName,
             task: postTask
              }).then(res => {
@@ -42,6 +42,7 @@ class AddTask extends React.Component{
                return(
                    <div>
                        <h1> Add Task </h1>
+                       <line></line>
                         <Form onSubmit={this.handleSubmit}>
                        
                             <Form.Field   name="postName" onChange={this.handleNameChange} >

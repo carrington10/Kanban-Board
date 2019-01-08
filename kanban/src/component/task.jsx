@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
+import { Button } from 'semantic-ui-react';
 
 
 const Container = styled.div`
@@ -48,12 +49,7 @@ export default class Task extends React.Component {
                         Created By: {this.props.task.name} 
                         <br></br>
                        Date Created: { this.props.task.date}
-                        <br></br>
-                      
-                        <Line></Line>
-                   
-                       
-                    
+                        
                  </Container>
             )}
              </Draggable>
