@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import initialData from '../data/initial-data.js';
 import Column from '../column';
 import {DragDropContext}  from 'react-beautiful-dnd';
+import { Button, Checkbox, Form,TextArea } from 'semantic-ui-react'
 import axios from 'axios';
 
 
@@ -85,6 +86,9 @@ class Taskboard extends React.Component{
        
         return (
             <div>
+                <button  class =" ui green button"  >
+                <a href="/addtask">Add Task</a>
+                </button>
                     <DragDropContext
                     
                         onDragEnd = {this.onDragEnd}>
