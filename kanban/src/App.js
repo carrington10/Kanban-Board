@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import TaskBoard from './component/Taskboard/Taskboard.js'
 import Features from './component/Features/Features.js'
 import AddTask from './component/AddTask/AddTask.js'
-
+import EditTask from './component/EditTask/EditTask.js'
 class App extends React.Component{
    
   render() {
@@ -19,6 +19,7 @@ class App extends React.Component{
                                       <Route path="/" component={TaskBoard} exact />
                                       <Route path="/features"  component={Features}> </Route>
                                       <Route path="/addtask" component={AddTask}> </Route>
+                                      <Route path="/edittask" component={EditTask}>  </Route>
                                   </Switch>
                               
                         </div>

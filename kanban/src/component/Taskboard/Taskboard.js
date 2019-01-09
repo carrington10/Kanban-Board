@@ -5,7 +5,7 @@ import initialData from '../data/initial-data.js';
 import Column from '../column';
 import {DragDropContext}  from 'react-beautiful-dnd';
 import { Button, Checkbox, Form,TextArea } from 'semantic-ui-react'
-import axios from 'axios';
+
 
 
 const Container = styled.div`
@@ -87,13 +87,12 @@ class Taskboard extends React.Component{
         return (
             <div>
                 <button  class =" ui green button"  >
-                <a href="/addtask">Add Task</a>
+                <a href="/addTask">Add Task</a>
                 </button>
+
+                
                     <DragDropContext
-                    
                         onDragEnd = {this.onDragEnd}>
-
-
                     <Container>
 
                     {this.state.columnOrder.map(columnId => { 

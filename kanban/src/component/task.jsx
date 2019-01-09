@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
 import { Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom'
 
 
 const Container = styled.div`
@@ -17,7 +18,7 @@ const Container = styled.div`
     fontw-weight:bold;
     font-weight: 900;
     background-color:green;
-    background-color: ${props => (props.isDragging ? 'lightgreen' : 'white')};
+    background-color: ${props => (props.isDragging ? 'lightgreen' : 'lightgreen')};
 `;
 const Line = styled.div`
 border-bottom: 2px solid #ccc;
@@ -34,6 +35,10 @@ const Handle = styled.div `
 
 export default class Task extends React.Component {
     render (){
+        var project = this.props.task.task
+        console.log("here it is")
+        console.log(project)
+        console.log(this.props.task.id)
         return (
             <Draggable draggableId={this.props.task.id} index={this.props.index}>
             {(provided, snapshot) => (
@@ -49,6 +54,10 @@ export default class Task extends React.Component {
                         Created By: {this.props.task.name} 
                         <br></br>
                        Date Created: { this.props.task.date}
+                       
+                       <br></br>
+                       <Link to={{ pathname:'/edittask',state: {  task: this.props.task.task, id: this.props.task.id }         }}>edit task </Link>
+                        <br></br>
                         
                  </Container>
             )}
