@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 
 const Container = styled.div`
@@ -11,8 +12,8 @@ const Container = styled.div`
     padding: 8px;
     margin-bottom: 8px;
     font-family: 'Helvetica';
-    display: flex;
-    height: 10x;
+    
+   height:flex;
     border-radius: 25px;
     font-family:  sans-serif;
     fontw-weight:bold;
@@ -25,15 +26,33 @@ border-bottom: 2px solid #ccc;
 `;
 
 const Handle = styled.div `
- width: 18px;
- height: 18px;
+ width: 25px;
+ height: 25px;
  background-color: #05054A;
- border-raduis: 5px;
+ border-raduis: 
  margin-right: 8px; 
  border-radius: 25px;
 `;
 
+
+
 export default class Task extends React.Component {
+     
+    
+    handleClick = event => {
+        event.preventDefault()
+        console.log('this is id')
+        console.log(this.props.task.id)
+        event.preventDefault();
+        axios.post('/deleteTask', {
+            id: this.props.task.id
+             }).then(res => {
+           console.log(res)
+ 
+        })
+        window.location.reload();
+    }// end of handle submit 
+    
     render (){
         var project = this.props.task.task
         console.log("here it is")
@@ -50,15 +69,13 @@ export default class Task extends React.Component {
                  >  
                     <Handle    {...provided.dragHandleProps} > </Handle>
                        Task: {this.props.task.task} 
-                        <br></br>
+                       <br></br>
                         Created By: {this.props.task.name} 
                         <br></br>
                        Date Created: { this.props.task.date}
-                       
                        <br></br>
-                       <Link to={{ pathname:'/edittask',state: {  task: this.props.task.task, id: this.props.task.id }         }}>edit task </Link>
-                        <br></br>
-                        
+                     <button class="ui yellow mini button">  <Link to={{ pathname:'/edittask',state: {  task: this.props.task.task, id: this.props.task.id }         }}>Edit </Link> </button>
+                        <button class="ui red mini button"  onClick={this.handleClick} >Delete</button>
                  </Container>
             )}
              </Draggable>

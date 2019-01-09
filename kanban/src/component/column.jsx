@@ -7,7 +7,7 @@ import axios from 'axios';
 const Container = styled.div`
     margin: 8px;
     border: 10px solid  #05054A;
-    border-radius: 2px;
+    border-radius: 25px;
     flex-direction: column;
     display: flex;
     width:400px;
@@ -21,7 +21,7 @@ const LightedT = styled.div`
    color: black;
 `
 const Title =styled.h1`
-
+  
   font-weight: bold;
   text-align: center;
   border-bottom: 2px solid white;
@@ -33,6 +33,7 @@ const Title =styled.h1`
 `;
 const TaskList = styled.div`
 padding: 8px;
+border-radius: 25px;
 transition: background-color 0.2s ease;
 background-color: #FFF5EE;
 background-color: ${props => (props.isDraggingOver ? 'skyblue' : '')};
