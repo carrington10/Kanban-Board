@@ -12,6 +12,7 @@ class ColumnSwitch extends React.Component {
                                 columnId: value
                                  }).then(res => {
                                console.log(res)
+                               window.location.reload();
                             
                             })// end of post to the api  
                 }// end of if 
@@ -21,6 +22,7 @@ class ColumnSwitch extends React.Component {
                                 columnId: value
                                }).then(res => {
                              console.log(res)
+                             window.location.reload();
                             
                           })// end of post to the api  
 
@@ -31,6 +33,7 @@ class ColumnSwitch extends React.Component {
                                 columnId: value
                                }).then(res => {
                              console.log(res)
+                             window.location.reload();
                          
                           })// end of post to the api  
                                 
@@ -42,7 +45,7 @@ class ColumnSwitch extends React.Component {
                                 columnId: value
                                }).then(res => {
                              console.log(res)
-                       
+                             window.location.reload();
                           })// end of post to the api  
                 }// end of else if
         }// end of handle submit
@@ -54,10 +57,10 @@ render(props){
                     closeOnDocumentClick
                     >
                     <h3> Move To</h3>
-                        <div className="ui orange button"  onClick={this.handleButton(1)}> BackLog</div>
-                        <div className="ui violet button"> In Progress</div>
-                        <div className="ui teal button"> Impediments</div>
-                        <div className="ui pink button"> Done</div>
+                        <div className="ui orange button"  onClick={this.handleButton(4)}> BackLog</div>
+                        <div className="ui violet button" onClick={this.handleButton(1)}> In Progress</div>
+                        <div className="ui teal button" onClick={this.handleButton(2)}> Impediments</div>
+                        <div className="ui pink button" onClick={this.handleButton(3)}> Done</div>
                     </Popup>
             )
     }// end of render 
