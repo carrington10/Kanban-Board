@@ -4,7 +4,7 @@ import { Draggable } from 'react-beautiful-dnd';
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-
+import Cswitch from './ColumnSwitch/ColumnSwitch.js'
 
 const Container = styled.div`
     border: 1px solid lightgrey;
@@ -76,6 +76,7 @@ export default class Task extends React.Component {
                        <br></br>
                      <button class="ui yellow mini button">  <Link to={{ pathname:'/edittask',state: {  task: this.props.task.task, id: this.props.task.id }         }}>Edit </Link> </button>
                         <button class="ui red mini button"  onClick={this.handleClick} >Delete</button>
+                        <Cswitch id = {this.props.task.id}></Cswitch>
                  </Container>
             )}
              </Draggable>
