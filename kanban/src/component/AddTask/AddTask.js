@@ -1,38 +1,42 @@
 import React from 'react'
 import axios from 'axios'
-import { Button, Checkbox, Form,TextArea } from 'semantic-ui-react'
+import { Button,Form,TextArea } from 'semantic-ui-react'
 class AddTask extends React.Component{
     state = {
         name: '',
-        task: ''
-    }
+        task: '',
+        estimatedTime: '',
+    }// end of state 
 
     handleNameChange = event => {
         const namee = event.target.value
         this.setState({ name: namee});
-        console.log(this.state.name)
-      
-    };
+    };// end of handle name channge
     handleTaskChange = event => {
         const taske = event.target.value
         this.setState({ task: taske})
-        console.log(this.state.task)
+    }// end of handle Task change
 
-    }
+    handleEstimatedTimeChange = event => {
+        console.log("here is the value in this event  " + event.target.value)
+         const timee = event.target.value
+         this.setState({ estimatedTime: timee })
+
+    }// end of estimated Time Change 
     handleSubmit = event => {
         event.preventDefault();
-
-        
           var postName = this.state.name
-          console.log(postName)
            var postTask = this.state.task
+           var postTime = this.state.estimatedTime
+           console.log(" here is estimated time change " + this.state.estimatedTime)
+           console.log(" here is name" + this.state.name)
         // end of task object to pass
     
         axios.post('/addTask', {
             name: postName,
-            task: postTask
+            task: postTask,
+            estimatedTime: postTime
              }).then(res => {
-           console.log(res)
            this.props.history.push('/')
         })// end of post to the api 
         
@@ -56,8 +60,13 @@ class AddTask extends React.Component{
                            </TextArea>
                         <br></br>
                         <br></br>
+                        <Form.Field   name="postTime" onChange={this.handleEstimatedTimeChange} >
+                            <input placeholder='EstimatedTime' />
+                        </Form.Field>
                             <Button type="submit"> Add Task</Button>
                         </Form>
+
+                      
                    </div>
                )
     }

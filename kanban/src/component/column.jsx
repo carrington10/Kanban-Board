@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Task from './task.jsx';
-import { Droppable } from  'react-beautiful-dnd';
 import axios from 'axios';
 
 const Container = styled.div`
@@ -44,8 +43,7 @@ export default class Column extends React.Component {
     state = {
         taske: [],
         listC: []
-        
-    }
+    }// end of state 
     
     componentDidMount(){
         axios.get('/tasks')
@@ -56,44 +54,28 @@ export default class Column extends React.Component {
     }// end of mounting component
 
      checkT(taske,columnId){
-        this.state.taske.map((task) => {
-            console.log(task.id)
-            console.log(task.name)
-
-            if(task.columnId === columnId){
-                    this.state.listC.push(task)
-                    console.log("it has been added")
-            }// end of if
-          
-        })
-}
+                this.state.taske.map((task) => {
+                    if(task.columnId === columnId){
+                            this.state.listC.push(task)
+                    }// end of if
+                
+                })
+        }// end of check T function to list the tasks to each column
     
     render(){
         this.checkT(this.state.taske,this.props.checkId)
       
         return (     
             
-                 <Container>
-                      
-                    <Title> {this.props.column.title}</Title>
-                    <Droppable droppableId={this.props.column.id}>
-                     {(provided,snapshot) => (
-                        <TaskList
-                        ref={provided.innerRef}
-                        {...provided.droppableProps}
-                        isDraggingOver={snapshot.isDraggingOver}
-                    >
-                      {this.state.listC.map((task,index) => ( 
-                      <Task key={task.id} task = {task} index = {index} theme='lightgreen'/>
-                      ))}
-                      {provided.placeholder}
-                    </TaskList>
-                     )}
-                    </Droppable>
-                
-                          
+                 <Container>            
+                            <Title> {this.props.column.title}</Title>
+                                    <TaskList>
+                                    {this.state.listC.map((task,index) => ( 
+                                    <Task key={task.id} task = {task} index = {index} theme='lightgreen'/>
+                                    ))}
+                            </TaskList>         
                     </Container>
             
-        );
+        );// end of return 
     }// end of render 
 }// end of column extend 

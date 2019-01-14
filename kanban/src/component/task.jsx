@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Draggable } from 'react-beautiful-dnd';
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -42,7 +41,6 @@ export default class Task extends React.Component {
     checkDate(taskDate){
         var color = 'lightgreen'
         var date  = new Date();
-        console.log(date);
         var d = date.getDate();
         var m = date.getMonth()+1
         if(m < 10 ){
@@ -51,9 +49,7 @@ export default class Task extends React.Component {
         var y = date.getFullYear();
    
         var formatDate = y + "-" + m +"-" +d;
-        console.log(" here is new date " + formatDate)
-        console.log("this is the formatated date " + formatDate)
-        console.log(taskDate)
+        // chek the date 
         if(taskDate === formatDate){
             color = 'red';
             return color;
@@ -66,26 +62,19 @@ export default class Task extends React.Component {
     
     handleClick = event => {
         event.preventDefault()
-        console.log('this is id')
-        console.log(this.props.task.id)
         event.preventDefault();
         axios.post('/deleteTask', {
             id: this.props.task.id
              }).then(res => {
-           console.log(res)
  
         })
         window.location.reload();
     }
-    
     render (){
      
         var hold= this.checkDate(this.props.task.days);
-        console.log(" this is the color " + hold)
-       
-        console.log("this is what hold is " + hold )
-        
         return (
+        
                  <Container theme =  {hold}>  
                             <Handle  > </Handle>
                             Task: {this.props.task.task} 
@@ -94,7 +83,7 @@ export default class Task extends React.Component {
                                 <br></br>
                             Date Created: { this.props.task.date}
                             <br></br>
-                            days: {this.props.task.days}
+                            Estimated Time: {this.props.task.estimatedTime}
                             <br></br>
                             <button class="ui yellow mini button">  <Link to={{ pathname:'/edittask',state: {  task: this.props.task.task, id: this.props.task.id }         }}>Edit </Link> </button>
                                 <button class="ui red mini button"  onClick={this.handleClick} >Delete</button>

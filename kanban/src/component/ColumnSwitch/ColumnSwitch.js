@@ -62,8 +62,8 @@ render(props){
                         <div className="ui teal button" onClick={this.handleButton(2)}> Impediments</div>
                         <div className="ui pink button" onClick={this.handleButton(3)}> Done</div>
                     </Popup>
-            )
+            )// end of return 
     }// end of render 
 
-}// end of class
+}// end of class ColumnSwitch
 export default ColumnSwitch 

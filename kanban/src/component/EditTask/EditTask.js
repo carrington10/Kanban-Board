@@ -11,15 +11,12 @@ class EditTask extends React.Component{
     handleTaskChange = event => {
         const taske = event.target.value
         this.setState({ task: taske})
-        console.log(this.state.task)
 
     }
     handleSubmit = event => {
         event.preventDefault();
 
         
-          var postName = this.state.name
-          console.log(postName)
            var postTask = this.state.task
         // end of task object to pass
     
@@ -27,23 +24,18 @@ class EditTask extends React.Component{
             id: this.state.id,
             task: postTask
              }).then(res => {
-           console.log(res)
            this.props.history.push('/')
         })// end of post to the api 
     }
 
     render(){
-        console.log("hello")
-          console.log(this.state.id)
                 return(
                     <div>
                 <h1>Edit Task  </h1>
                 <line></line>
-                <Form onSubmit={this.handleSubmit}>
-                    
+                <Form onSubmit={this.handleSubmit}> 
                 <br></br> 
                 <TextArea  placeholder={this.state.task} task="postTask" onChange={this.handleTaskChange}>
-                
                     </TextArea>
                 <br></br>
                 <br></br>
