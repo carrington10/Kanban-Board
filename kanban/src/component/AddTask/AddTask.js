@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { Button,Form,TextArea } from 'semantic-ui-react'
+import { Button,Form,TextArea,Header } from 'semantic-ui-react'
 class AddTask extends React.Component{
     state = {
         name: '',
@@ -45,7 +45,7 @@ class AddTask extends React.Component{
     render() {
                return(
                    <div>
-                       <h1> Add Task </h1>
+                       <h2 class="ui header" > Add Task </h2>
                        <line></line>
                         <Form onSubmit={this.handleSubmit}>
                        
@@ -63,7 +63,7 @@ class AddTask extends React.Component{
                         <Form.Field   name="postTime" onChange={this.handleEstimatedTimeChange} >
                             <input placeholder='EstimatedTime' />
                         </Form.Field>
-                            <Button type="submit"> Add Task</Button>
+                            <button class = 'ui blue button' type="submit"> Add Task</button>
                         </Form>
 
                       

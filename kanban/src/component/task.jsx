@@ -50,7 +50,7 @@ export default class Task extends React.Component {
    
         var formatDate = y + "-" + m +"-" +d;
         // chek the date 
-        if(taskDate === formatDate){
+        if(taskDate <= formatDate){
             color = 'red';
             return color;
         }// end of if 

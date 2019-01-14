@@ -16,7 +16,6 @@ class EditTask extends React.Component{
     handleSubmit = event => {
         event.preventDefault();
 
-        
            var postTask = this.state.task
         // end of task object to pass
     
