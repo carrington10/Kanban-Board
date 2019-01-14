@@ -84,7 +84,7 @@ export default class Column extends React.Component {
                         isDraggingOver={snapshot.isDraggingOver}
                     >
                       {this.state.listC.map((task,index) => ( 
-                      <Task key={task.id} task = {task} index = {index}/>
+                      <Task key={task.id} task = {task} index = {index} theme='lightgreen'/>
                       ))}
                       {provided.placeholder}
                     </TaskList>

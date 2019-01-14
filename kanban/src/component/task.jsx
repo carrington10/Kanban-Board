@@ -18,8 +18,7 @@ const Container = styled.div`
     font-family:  sans-serif;
     fontw-weight:bold;
     font-weight: 900;
-    background-color:green;
-    background-color: ${props => (props.isDragging ? 'lightgreen' : 'lightgreen')};
+    background-color: ${props => props.theme};
 `;
 const Line = styled.div`
 border-bottom: 2px solid #ccc;
@@ -36,8 +35,34 @@ const Handle = styled.div `
 
 
 
+
+
 export default class Task extends React.Component {
-     
+    
+    checkDate(taskDate){
+        var color = 'lightgreen'
+        var date  = new Date();
+        console.log(date);
+        var d = date.getDate();
+        var m = date.getMonth()+1
+        if(m < 10 ){
+            m = "0"+ m
+        }// end of if 
+        var y = date.getFullYear();
+   
+        var formatDate = y + "-" + m +"-" +d;
+        console.log(" here is new date " + formatDate)
+        console.log("this is the formatated date " + formatDate)
+        console.log(taskDate)
+        if(taskDate === formatDate){
+            color = 'red';
+            return color;
+        }// end of if 
+        else{
+            return color 
+        }// end of else
+        
+    }// end of check Date
     
     handleClick = event => {
         event.preventDefault()
@@ -51,35 +76,32 @@ export default class Task extends React.Component {
  
         })
         window.location.reload();
-    }// end of handle submit 
+    }
     
     render (){
-        var project = this.props.task.task
-        console.log("here it is")
-        console.log(project)
-        console.log(this.props.task.id)
+     
+        var hold= this.checkDate(this.props.task.days);
+        console.log(" this is the color " + hold)
+       
+        console.log("this is what hold is " + hold )
+        
         return (
-            <Draggable draggableId={this.props.task.id} index={this.props.index}>
-            {(provided, snapshot) => (
-                 <Container
-                 {...provided.draggableProps}
-              
-                 ref={provided.innerRef}
-                 isDragging = {snapshot.isDragging}
-                 >  
-                    <Handle    {...provided.dragHandleProps} > </Handle>
-                       Task: {this.props.task.task} 
-                       <br></br>
-                        Created By: {this.props.task.name} 
-                        <br></br>
-                       Date Created: { this.props.task.date}
-                       <br></br>
-                     <button class="ui yellow mini button">  <Link to={{ pathname:'/edittask',state: {  task: this.props.task.task, id: this.props.task.id }         }}>Edit </Link> </button>
-                        <button class="ui red mini button"  onClick={this.handleClick} >Delete</button>
-                        <Cswitch id = {this.props.task.id}></Cswitch>
+                 <Container theme =  {hold}>  
+                            <Handle  > </Handle>
+                            Task: {this.props.task.task} 
+                            <br></br>
+                                Created By: {this.props.task.name} 
+                                <br></br>
+                            Date Created: { this.props.task.date}
+                            <br></br>
+                            days: {this.props.task.days}
+                            <br></br>
+                            <button class="ui yellow mini button">  <Link to={{ pathname:'/edittask',state: {  task: this.props.task.task, id: this.props.task.id }         }}>Edit </Link> </button>
+                                <button class="ui red mini button"  onClick={this.handleClick} >Delete</button>
+                                <Cswitch id = {this.props.task.id}></Cswitch>
                  </Container>
-            )}
-             </Draggable>
+            
+          
          )// end of return
     }// end of render
-}// end of component 
+}// end of Task Component 
