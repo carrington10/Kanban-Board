@@ -6,41 +6,59 @@ class AddTask extends React.Component{
         name: '',
         task: '',
         estimatedTime: '',
+        //nameValid: false,
+        //taskValid: false,
+        //estimatedValid: false,
     }// end of state 
 
     handleNameChange = event => {
         const namee = event.target.value
         this.setState({ name: namee});
     };// end of handle name channge
+
     handleTaskChange = event => {
         const taske = event.target.value
         this.setState({ task: taske})
     }// end of handle Task change
 
     handleEstimatedTimeChange = event => {
-        console.log("here is the value in this event  " + event.target.value)
          const timee = event.target.value
          this.setState({ estimatedTime: timee })
 
     }// end of estimated Time Change 
+
     handleSubmit = event => {
         event.preventDefault();
-          var postName = this.state.name
-           var postTask = this.state.task
-           var postTime = this.state.estimatedTime
-           console.log(" here is estimated time change " + this.state.estimatedTime)
-           console.log(" here is name" + this.state.name)
-        // end of task object to pass
-    
-        axios.post('/addTask', {
-            name: postName,
-            task: postTask,
-            estimatedTime: postTime
-             }).then(res => {
-           this.props.history.push('/')
-        })// end of post to the api 
+        var bool =  validate(this.state.name,this.state.task,this.state.task)
+          if(bool)
+          {
+                    var postName = this.state.name
+                    var postTask = this.state.task
+                    var postTime = this.state.estimatedTime
+                    // end of task object to pass
+                
+                    axios.post('/addTask', {
+                        name: postName,
+                        task: postTask,
+                        estimatedTime: postTime
+                        }).then(res => {
+                    this.props.history.push('/')
+                    })// end of post to the api 
+           }// end of if bool for checking to see if value empty
+
+          else{
+               console.log('invalid please fill in blanks ')
+          }
+        function validate (name,task,time){
+      if(name.length === 0 | task.length === 0 | time.length === 0){
+          return false;
+      }
+      else {
+          return true
+      }
+        }// end of validate function 
         
-    }
+    }// end of event handler 
     
     render() {
                return(
