@@ -1,9 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavItem} from 'react-bootstrap';
-import { LinkContainer } from "react-router-bootstrap";
 import { Link , BrowserRouter as Router,NavLink }  from "react-router-dom";
 import Image from 'react-image-resizer';
-import Routes from '../Routes.js';
 import logo from './usaal.png'
 import './Header.css'
 
